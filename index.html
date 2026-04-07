@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nas4Tech Information Technology — ICT & Network Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #050e1f;
+    --deep: #0a1a35;
+    --mid: #0f2650;
+    --accent: #0ea5e9;
+    --accent2: #38bdf8;
+    --teal: #06b6d4;
+    --light: #e0f2fe;
+    --white: #f8fafc;
+    --muted: #94a3b8;
+    --border: rgba(14,165,233,0.18);
+    --glow: rgba(14,165,233,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── BACKGROUND GRID ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    height: 72px;
+    background: rgba(5,14,31,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: all .3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .logo-text span { color: var(--accent); }
+  .logo-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: .65rem;
+    color: var(--muted);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: .88rem;
+    letter-spacing: .04em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    color: #fff !important;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: opacity .2s !important;
+  }
+  .nav-cta:hover { opacity: .85; }
+
+  /* ─── HERO ─── */
+  #home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 5vw 80px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: -200px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 680px;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(14,165,233,0.1);
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 28px;
+    animation: fadeUp .7s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(.8); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    line-height: 1.03;
+    letter-spacing: -.03em;
+    margin-bottom: 24px;
+    animation: fadeUp .7s .1s ease both;
+  }
+
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    animation: fadeUp .7s .2s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp .7s .3s ease both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: .95rem;
+    transition: opacity .2s, transform .2s;
+  }
+  .btn-primary:hover { opacity: .87; transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--light);
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: .95rem;
+    transition: background .2s, border-color .2s;
+    background: rgba(14,165,233,0.04);
+  }
+  .btn-outline:hover { background: rgba(14,165,233,0.1); border-color: var(--accent); }
+
+  /* Stats strip */
+  .stats-strip {
+    margin-top: 64px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    animation: fadeUp .7s .4s ease both;
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-lbl {
+    font-size: .78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-top: 4px;
+  }
+
+  /* Hero right — animated network visual */
+  .hero-visual {
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
+    opacity: .55;
+    animation: fadeIn 1s .5s ease both;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: .55; } }
+
+  /* ─── TICKER ─── */
+  .ticker {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,26,53,0.7);
+    padding: 14px 0;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 32px;
+    font-size: .8rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ticker-dot {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 5vw;
+  }
+
+  .section-tag {
+    font-size: .73rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    letter-spacing: -.025em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: rgba(10,26,53,0.5);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .about-left {}
+
+  .about-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #b0c4d8;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .about-highlight {
+    background: rgba(14,165,233,0.07);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 0 8px 8px 0;
+    font-size: .95rem;
+    color: var(--light);
+    line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 28px;
+  }
+
+  .coverage-card {
+    background: rgba(14,165,233,0.05);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coverage-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(14,165,233,0.15), transparent 70%);
+  }
+
+  .coverage-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .coverage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(14,165,233,0.1);
+  }
+  .coverage-item:last-child { border-bottom: none; }
+
+  .ci-icon {
+    width: 32px; height: 32px;
+    background: rgba(14,165,233,0.12);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+
+  .ci-label {
+    font-size: .88rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .ci-label strong { color: var(--white); display: block; font-weight: 500; }
+
+  /* ─── SERVICES ─── */
+  #services {}
+
+  .services-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: rgba(10,26,53,0.8);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+    transition: border-color .25s, transform .25s, background .25s;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(14,165,233,0.05), transparent);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    background: rgba(14,165,233,0.06);
+  }
+  .service-card:hover::before { opacity: 1; }
+
+  .sc-num {
+    font-family: 'Syne', sans-serif;
+    font-size: .72rem;
+    letter-spacing: .14em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .sc-icon {
+    font-size: 26px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .sc-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+
+  .sc-desc {
+    font-size: .88rem;
+    line-height: 1.65;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .sc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    font-size: .82rem;
+    color: var(--accent2);
+    text-decoration: none;
+    transition: gap .2s;
+  }
+  .sc-link:hover { gap: 10px; }
+
+  /* ─── WHY US ─── */
+  #why {
+    background: rgba(10,26,53,0.5);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .why-item {
+    padding: 40px 32px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(5,14,31,0.6);
+    transition: background .25s;
+  }
+  .why-item:hover { background: rgba(14,165,233,0.06); }
+
+  .wi-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .wi-title {
+    font-family: 'Syne', sans-serif;
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .wi-desc {
+    font-size: .83rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {}
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  .contact-info {}
+
+  .contact-block {
+    margin-bottom: 32px;
+  }
+
+  .cb-label {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .cb-value {
+    font-size: .95rem;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  .cb-value a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .cb-value a:hover { color: var(--accent2); }
+
+  .team-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .team-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(14,165,233,0.07);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+  }
+
+  .team-avatar {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: .7rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .team-name {
+    font-size: .82rem;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .team-role {
+    font-size: .72rem;
+    color: var(--muted);
+  }
+
+  /* FORM */
+  .contact-form {
+    background: rgba(10,26,53,0.8);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .form-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  label {
+    display: block;
+    font-size: .78rem;
+    color: var(--muted);
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    font-weight: 500;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    background: rgba(14,165,233,0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .93rem;
+    outline: none;
+    transition: border-color .2s, background .2s;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+    background: rgba(14,165,233,0.09);
+  }
+  input::placeholder, textarea::placeholder { color: #3a5068; }
+
+  select option { background: var(--deep); color: var(--white); }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    border: none;
+    color: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity .2s, transform .2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { opacity: .87; transform: translateY(-1px); }
+
+  .form-success, .form-error {
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: .88rem;
+    display: none;
+  }
+  .form-success { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,.3); color: #6ee7b7; }
+  .form-error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative;
+    z-index: 1;
+    background: rgba(5,14,31,0.95);
+    border-top: 1px solid var(--border);
+    padding: 56px 5vw 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand p {
+    font-size: .88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-top: 16px;
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-family: 'Syne', sans-serif;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: .88rem;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--accent2); }
+
+  .footer-contact-item {
+    font-size: .85rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .footer-contact-item a { color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-contact-item a:hover { color: var(--accent2); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: .8rem;
+    color: #3a5068;
+  }
+
+  .footer-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: rgba(14,165,233,0.07);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-visual { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    section { padding: 72px 5vw; }
+    .stats-strip { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#home">
+    <div class="logo-mark">N4T</div>
+    <div>
+      <div class="logo-text">Nas<span>4</span>Tech</div>
+      <div class="logo-sub">Information Technology</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">ICT &amp; Network Solutions — North America</div>
+    <h1>Enterprise IT.<br><em>Delivered.</em></h1>
+    <p class="hero-desc">Nas4Tech provides comprehensive ICT and network solutions to enterprise markets across North America — from structured cabling to full-time engineer placements.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#contact" class="btn-outline">Request a Quote →</a>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-num">200<span>+</span></div>
+        <div class="stat-lbl">Enterprise Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">15<span>+</span></div>
+        <div class="stat-lbl">Services Offered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">NA</div>
+        <div class="stat-lbl">Coverage Area</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SVG Network Visual -->
+  <svg class="hero-visual" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="ng1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#0ea5e9" stop-opacity=".8"/>
+        <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- Rings -->
+    <circle cx="200" cy="200" r="160" stroke="#0ea5e9" stroke-width=".6" stroke-dasharray="6 6" opacity=".25"/>
+    <circle cx="200" cy="200" r="110" stroke="#06b6d4" stroke-width=".6" stroke-dasharray="4 8" opacity=".3"/>
+    <circle cx="200" cy="200" r="60" stroke="#0ea5e9" stroke-width="1" opacity=".4"/>
+    <!-- Core -->
+    <circle cx="200" cy="200" r="20" fill="url(#ng1)" opacity=".9"/>
+    <circle cx="200" cy="200" r="10" fill="#0ea5e9" opacity=".9"/>
+    <!-- Nodes on ring 160 -->
+    <circle cx="360" cy="200" r="6" fill="#0ea5e9" opacity=".7"/>
+    <circle cx="40" cy="200" r="6" fill="#0ea5e9" opacity=".7"/>
+    <circle cx="200" cy="40" r="6" fill="#06b6d4" opacity=".7"/>
+    <circle cx="200" cy="360" r="6" fill="#06b6d4" opacity=".7"/>
+    <circle cx="313" cy="87" r="5" fill="#38bdf8" opacity=".6"/>
+    <circle cx="87" cy="313" r="5" fill="#38bdf8" opacity=".6"/>
+    <circle cx="313" cy="313" r="5" fill="#38bdf8" opacity=".6"/>
+    <circle cx="87" cy="87" r="5" fill="#38bdf8" opacity=".6"/>
+    <!-- Lines core to nodes -->
+    <line x1="200" y1="200" x2="360" y2="200" stroke="#0ea5e9" stroke-width=".7" opacity=".3"/>
+    <line x1="200" y1="200" x2="40" y2="200" stroke="#0ea5e9" stroke-width=".7" opacity=".3"/>
+    <line x1="200" y1="200" x2="200" y2="40" stroke="#06b6d4" stroke-width=".7" opacity=".3"/>
+    <line x1="200" y1="200" x2="200" y2="360" stroke="#06b6d4" stroke-width=".7" opacity=".3"/>
+    <line x1="200" y1="200" x2="313" y2="87" stroke="#38bdf8" stroke-width=".5" opacity=".25"/>
+    <line x1="200" y1="200" x2="87" y2="313" stroke="#38bdf8" stroke-width=".5" opacity=".25"/>
+    <line x1="200" y1="200" x2="313" y2="313" stroke="#38bdf8" stroke-width=".5" opacity=".25"/>
+    <line x1="200" y1="200" x2="87" y2="87" stroke="#38bdf8" stroke-width=".5" opacity=".25"/>
+    <!-- Cross connections -->
+    <line x1="360" y1="200" x2="313" y2="87" stroke="#0ea5e9" stroke-width=".4" opacity=".15"/>
+    <line x1="200" y1="40" x2="313" y2="87" stroke="#0ea5e9" stroke-width=".4" opacity=".15"/>
+    <line x1="40" y1="200" x2="87" y2="87" stroke="#0ea5e9" stroke-width=".4" opacity=".15"/>
+    <!-- Animated pulse -->
+    <circle cx="200" cy="200" r="30" fill="none" stroke="#0ea5e9" stroke-width="1.5" opacity=".6">
+      <animate attributeName="r" values="20;80;20" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values=".6;0;.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </svg>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <!-- doubled for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span>Managed IT Services</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Structured Cabling</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Network Support</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>POS Installation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Windows Migration</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Telephony Equipment</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>AP / WAP / Switch / Router</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Office Moves</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>WEEE Equipment Disposal</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Engineer Placements</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Break-fix</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>IMAC</span>
+    <!-- repeat -->
+    <span class="ticker-item"><span class="ticker-dot"></span>Managed IT Services</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Structured Cabling</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Network Support</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>POS Installation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Windows Migration</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Telephony Equipment</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>AP / WAP / Switch / Router</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Office Moves</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>WEEE Equipment Disposal</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Engineer Placements</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Break-fix</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>IMAC</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-tag">Who We Are</div>
+    <h2>Enterprise ICT, <em>Simplified</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <p class="about-body">Nas4Tech Information Technology provides ICT and network solutions to various enterprise markets across North America. We specialize in delivering reliable, scalable, and cost-effective IT support tailored to the needs of modern businesses.</p>
+      <p class="about-body">Whether you need a single technician for a break-fix call or a full-time engineer embedded within your organization, we have the expertise and resources to meet your demands — on time and on budget.</p>
+      <p class="about-body">Our team of certified professionals brings deep experience across networking, structured cabling, telephony, and enterprise hardware deployments. We are committed to the highest service standards at every engagement.</p>
+      <div class="about-highlight">"We are managing an extensive range of ICT support services in North America — from day-one infrastructure builds to long-term managed support."</div>
+    </div>
+    <div class="coverage-card reveal">
+      <div class="coverage-title">Coverage &amp; Capabilities</div>
+      <div class="coverage-item">
+        <div class="ci-icon">🌎</div>
+        <div class="ci-label">
+          <strong>North America-Wide</strong>
+          Enterprise ICT support across the US and Canada
+        </div>
+      </div>
+      <div class="coverage-item">
+        <div class="ci-icon">🏗️</div>
+        <div class="ci-label">
+          <strong>Multiple Markets</strong>
+          Retail, Finance, Healthcare, Telecom &amp; more
+        </div>
+      </div>
+      <div class="coverage-item">
+        <div class="ci-icon">🔧</div>
+        <div class="ci-label">
+          <strong>On-Site &amp; Remote</strong>
+          Flexible delivery models for any environment
+        </div>
+      </div>
+      <div class="coverage-item">
+        <div class="ci-icon">♻️</div>
+        <div class="ci-label">
+          <strong>WEEE Compliant</strong>
+          Equipment disposal meeting all regulatory standards
+        </div>
+      </div>
+      <div class="coverage-item">
+        <div class="ci-icon">👷</div>
+        <div class="ci-label">
+          <strong>Engineer Placements</strong>
+          Full-time certified engineers available for deployment
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2>Services &amp; <em>Expertise</em></h2>
+    </div>
+    <p class="section-intro">A comprehensive range of ICT support services designed for enterprise environments.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="sc-num">01</div>
+      <span class="sc-icon">🖥️</span>
+      <div class="sc-title">Managed IT Services</div>
+      <p class="sc-desc">Proactive monitoring, maintenance, and management of your entire IT estate. We keep your infrastructure running so you can focus on your business.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">02</div>
+      <span class="sc-icon">🔨</span>
+      <div class="sc-title">Break-Fix &amp; IMAC</div>
+      <p class="sc-desc">Rapid on-site response for hardware failures and incidents. Full Install, Move, Add, and Change (IMAC) services for enterprise equipment.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">03</div>
+      <span class="sc-icon">🌐</span>
+      <div class="sc-title">Networking &amp; Structured Cabling</div>
+      <p class="sc-desc">End-to-end network design, deployment, and structured cabling installations — Cat5e, Cat6, fibre, and beyond — to spec and on schedule.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">04</div>
+      <span class="sc-icon">📡</span>
+      <div class="sc-title">AP, WAP, Switch &amp; Router Installation</div>
+      <p class="sc-desc">Professional installation and configuration of wireless access points, switches, and routers for high-performance enterprise networks.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">05</div>
+      <span class="sc-icon">🏪</span>
+      <div class="sc-title">POS Installation</div>
+      <p class="sc-desc">Point-of-sale hardware deployment and configuration for retail and hospitality environments. Single-site to large-scale rollouts handled seamlessly.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">06</div>
+      <span class="sc-icon">💻</span>
+      <div class="sc-title">Windows Migration</div>
+      <p class="sc-desc">Smooth, low-downtime OS migration projects. We plan, execute, and validate Windows upgrades across your entire device fleet.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">07</div>
+      <span class="sc-icon">☎️</span>
+      <div class="sc-title">Telephony Equipment Installation</div>
+      <p class="sc-desc">VoIP, PBX, and traditional telephony hardware installation and support — keeping your business communications connected and reliable.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">08</div>
+      <span class="sc-icon">🚚</span>
+      <div class="sc-title">Office Moves</div>
+      <p class="sc-desc">Complete IT relocation services — decommission, pack, transport, and recommission your entire technology setup at the new site.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="sc-num">09</div>
+      <span class="sc-icon">👷</span>
+      <div class="sc-title">Full-Time Engineer Placements</div>
+      <p class="sc-desc">Embed a certified Nas4Tech engineer within your organization on a full-time basis for ongoing support, projects, and escalations.</p>
+      <a href="#contact" class="sc-link">Enquire →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="reveal">
+    <div class="section-tag">Why Nas4Tech</div>
+    <h2>Built for <em>Enterprise</em></h2>
+    <p class="section-intro" style="margin-top:12px;">We combine technical depth with operational reliability to deliver ICT solutions enterprises trust.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-item">
+      <div class="wi-num">15+</div>
+      <div class="wi-title">Service Disciplines</div>
+      <div class="wi-desc">From cabling to cloud — one partner covers your entire ICT footprint.</div>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">NA</div>
+      <div class="wi-title">Wide Coverage</div>
+      <div class="wi-desc">Resources deployed across the United States and Canada for enterprise clients.</div>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">SLA</div>
+      <div class="wi-title">Service Guarantees</div>
+      <div class="wi-desc">Defined SLAs for every engagement. We meet our commitments every time.</div>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">24/7</div>
+      <div class="wi-title">Support Availability</div>
+      <div class="wi-desc">Critical IT infrastructure doesn't keep business hours — neither do we.</div>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">♻️</div>
+      <div class="wi-title">WEEE Compliance</div>
+      <div class="wi-desc">Responsible equipment disposal meeting all environmental standards and regulations.</div>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">FTE</div>
+      <div class="wi-title">Engineer Placement</div>
+      <div class="wi-desc">Certified engineers available for full-time on-site deployment within your team.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2>Let's Discuss Your <em>Project</em></h2>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-block">
+        <div class="cb-label">Email</div>
+        <div class="cb-value"><a href="mailto:info@nas4tech.com">info@nas4tech.com</a></div>
+      </div>
+      <div class="contact-block">
+        <div class="cb-label">Coverage Area</div>
+        <div class="cb-value">North America — United States &amp; Canada</div>
+      </div>
+      <div class="contact-block">
+        <div class="cb-label">Services</div>
+        <div class="cb-value">
+          Technical Support · IT Consulting · Network Support<br>
+          Home Networking · Computer Networking<br>
+          Computer Repair · Backup &amp; Recovery Systems
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="cb-label">Business Hours</div>
+        <div class="cb-value">
+          Monday – Friday: 8:00 AM – 6:00 PM<br>
+          Emergency support available 24/7
+        </div>
+      </div>
+
+      <div class="team-row">
+        <div class="team-pill">
+          <div class="team-avatar">NT</div>
+          <div>
+            <div class="team-name">Nas4Tech Team</div>
+            <div class="team-role">ICT Solutions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <div class="form-title">Request a Quote</div>
+      <div class="form-row">
+        <div class="field">
+          <label>First Name *</label>
+          <input type="text" id="fname" placeholder="John" />
+        </div>
+        <div class="field">
+          <label>Last Name *</label>
+          <input type="text" id="lname" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Company / Organization</label>
+        <input type="text" id="company" placeholder="Acme Corp" />
+      </div>
+      <div class="field">
+        <label>Email Address *</label>
+        <input type="email" id="email" placeholder="john@acmecorp.com" />
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="+1 (555) 000-0000" />
+      </div>
+      <div class="field">
+        <label>Service Required *</label>
+        <select id="service">
+          <option value="">— Select a service —</option>
+          <option>Managed IT Services</option>
+          <option>Break-Fix / IMAC</option>
+          <option>Networking &amp; Structured Cabling</option>
+          <option>AP / WAP / Switch / Router Installation</option>
+          <option>POS Installation</option>
+          <option>Windows Migration</option>
+          <option>Telephony Equipment</option>
+          <option>Office Move</option>
+          <option>Engineer Placement</option>
+          <option>Equipment Disposal (WEEE)</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Project Details *</label>
+        <textarea id="details" placeholder="Describe your requirements, timeline, and scope…"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Request →</button>
+      <div class="form-success" id="form-success">✔ Your request has been sent. We'll be in touch within one business day.</div>
+      <div class="form-error" id="form-error">✘ Please fill in all required fields.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#home" style="text-decoration:none;">
+        <div class="logo-mark">N4T</div>
+        <div>
+          <div class="logo-text">Nas<span>4</span>Tech</div>
+          <div class="logo-sub">Information Technology</div>
+        </div>
+      </a>
+      <p>ICT and network solutions for enterprise markets across North America. Reliable. Scalable. Compliant.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Managed IT</a></li>
+        <li><a href="#services">Networking</a></li>
+        <li><a href="#services">Structured Cabling</a></li>
+        <li><a href="#services">POS Installation</a></li>
+        <li><a href="#services">Engineer Placements</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><a href="mailto:info@nas4tech.com">info@nas4tech.com</a></div>
+      <div class="footer-contact-item">North America — US &amp; Canada</div>
+      <div class="footer-contact-item">Mon–Fri: 8:00 AM – 6:00 PM<br>24/7 Emergency Support</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Nas4Tech Information Technology. All rights reserved.</div>
+    <div class="footer-badges">
+      <span class="badge">WEEE Compliant</span>
+      <span class="badge">North America</span>
+      <span class="badge">Enterprise ICT</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger service cards
+  document.querySelectorAll('.service-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.07) + 's';
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(5,14,31,0.97)';
+    } else {
+      nav.style.background = 'rgba(5,14,31,0.85)';
+    }
+  });
+
+  // Form
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('service').value;
+    const details = document.getElementById('details').value.trim();
+    const success = document.getElementById('form-success');
+    const error = document.getElementById('form-error');
+    success.style.display = 'none';
+    error.style.display = 'none';
+    if (!fname || !lname || !email || !service || !details) {
+      error.style.display = 'block';
+      return;
+    }
+    success.style.display = 'block';
+  }
+</script>
+</body>
+</html>
